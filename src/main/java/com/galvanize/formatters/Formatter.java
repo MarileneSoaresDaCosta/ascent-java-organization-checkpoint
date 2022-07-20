@@ -1,6 +1,7 @@
 package com.galvanize.formatters;
 
+import com.galvanize.Booking;
+
 public interface Formatter {
- //    String format: formats booking into String
-// public String format(Booking booking);
+    public String format(Booking booking);
 }
