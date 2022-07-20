@@ -50,9 +50,24 @@ public class Booking {
         this.startTime = startTime;
         this.endTime = endTime;
     }
-
-   public RoomType getRoomType(){
-        return this.roomType;
+  // return room  type as string  == ready to format
+   public String getRoomType(){
+        String roomTypeName = "";
+        switch (this.roomType) {
+            case R:
+                roomTypeName = "Conference Room";
+                break;
+            case S:
+                roomTypeName = "Suite";
+                break;
+            case A:
+                roomTypeName = "Auditorium";
+                break;
+            case C:
+                roomTypeName = "Classroom";
+                break;
+        }
+        return roomTypeName;
    }
 
     public String getRoomNumber(){

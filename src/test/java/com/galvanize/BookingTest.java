@@ -13,4 +13,6 @@ public class BookingTest {
         assertEquals("111", Booking.parse(code).getRoomNumber() );
     }
 
+
+
 }
