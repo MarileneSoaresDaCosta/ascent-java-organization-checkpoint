@@ -29,9 +29,40 @@ public class ApplicationTest {
     }
 
     @Test
-    public void aTest() {
+    public void shouldPrintOutHTMLFormat() {
         // Write your tests here
         // outContent.toString() will give you what your code printed to System.out
+        String[] args = {"r111-08:30am-11:00am", "html"};
+        Application.main(args);
+        String expected = "<dl>\n" +
+                "  <dt>Type</dt><dd>Conference Room</dd>\n" +
+                "  <dt>Room Number</dt><dd>111</dd>\n" +
+                "  <dt>Start Time</dt><dd>08:30am</dd>\n" +
+                "  <dt>End Time</dt><dd>11:00am</dd>\n" +
+                "</dl>\n";
+        assertEquals(expected, outContent.toString());
+    }
+
+    @Test
+    public void shouldPrintOutInJSONFormat() {
+        String[] args = {"s111-08:30am-11:00am", "json"};
+        Application.main(args);
+        String expected = "{\n" +
+                "  \"type\": \"Suite\",\n" +
+                "  \"roomNumber\": 111,\n" +
+                "  \"startTime\": \"08:30am\",\n" +
+                "  \"endTime\": \"11:00am\"\n" +
+                "}\n";
+        assertEquals(expected, outContent.toString());
+    }
+
+    @Test
+    public void shouldPrintOutInCSVFormat() {
+        String[] args = {"a111-08:30am-11:00am", "csv"};
+        Application.main(args);
+        String expected = "type,room number,start time,end time\n" +
+                "Auditorium,111,08:30am,11:00am\n";
+        assertEquals(expected, outContent.toString());
     }
 
 }
