@@ -43,4 +43,26 @@ public class ApplicationTest {
         assertEquals(expected, outContent.toString());
     }
 
+    @Test
+    public void shouldPrintOutInJSONFormat() {
+        String[] args = {"s111-08:30am-11:00am", "json"};
+        Application.main(args);
+        String expected = "{\n" +
+                "  \"type\": \"Suite\",\n" +
+                "  \"roomNumber\": 111,\n" +
+                "  \"startTime\": \"08:30am\",\n" +
+                "  \"endTime\": \"11:00am\"\n" +
+                "}\n";
+        assertEquals(expected, outContent.toString());
+    }
+
+    @Test
+    public void shouldPrintOutInCSVFormat() {
+        String[] args = {"a111-08:30am-11:00am", "csv"};
+        Application.main(args);
+        String expected = "type,room number,start time,end time\n" +
+                "Auditorium,111,08:30am,11:00am\n";
+        assertEquals(expected, outContent.toString());
+    }
+
 }
